@@ -29,64 +29,58 @@ import { categories, videos } from '../data/videos';
       }
     </div>
 
-    <!-- Grid -->
-    <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="video-grid">
+    <!-- Phone grid -->
+    <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
       {
         videos.map((video) => (
-          <button
-            type="button"
-            class="video-card group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm"
-            data-category={video.category}
-            data-title={video.title}
-            data-thumb={video.thumbnail}
-          >
-            <img
-              src={video.thumbnail}
-              alt={video.title}
-              loading="lazy"
-              class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 flex items-end bg-gradient-to-t from-ink/70 via-ink/0 to-transparent p-5 opacity-0 transition group-hover:opacity-100"
-            >
-              <p class="text-left text-sm font-medium text-cream">{video.title}</p>
+          <div class="video-card flex flex-col items-center" data-category={video.category}>
+            <!-- Phone frame -->
+            <div class="relative w-[230px] rounded-[2.25rem] bg-ink p-2.5 shadow-lg">
+              <!-- Notch -->
+              <div class="absolute top-2.5 left-1/2 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-ink" />
+              <div class="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.75rem] bg-black">
+                {video.tiktokUrl ? (
+                  <blockquote
+                    class="tiktok-embed h-full w-full"
+                    cite={video.tiktokUrl}
+                    data-video-id={video.tiktokUrl.split('/video/')[1]}
+                    style="max-width: 230px; min-width: 230px;"
+                  >
+                    <section />
+                  </blockquote>
+                ) : (
+                  <>
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      loading="lazy"
+                      class="h-full w-full object-cover"
+                    />
+                    <div class="absolute inset-0 flex items-center justify-center bg-ink/20">
+                      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-cream/90">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5 fill-ink">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
-            <div
-              class="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cream/90 opacity-0 transition group-hover:opacity-100"
-            >
-              <svg viewBox="0 0 24 24" class="h-5 w-5 fill-ink"><path d="M8 5v14l11-7z" /></svg>
-            </div>
-          </button>
+
+            <p class="mt-5 text-center text-sm font-medium text-charcoal/80">{video.title}</p>
+          </div>
         ))
       }
     </div>
   </div>
 
-  <!-- Lightbox modal -->
-  <dialog
-    id="video-modal"
-    class="m-auto w-full max-w-3xl rounded-2xl bg-ink p-0 backdrop:bg-ink/80"
-  >
-    <div class="relative aspect-video w-full">
-      <button
-        type="button"
-        id="modal-close"
-        class="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-cream/90 text-ink"
-        aria-label="Close video"
-      >
-        ✕
-      </button>
-      <img id="modal-image" src="" alt="" class="h-full w-full rounded-2xl object-cover" />
-    </div>
-  </dialog>
+  <script async src="https://www.tiktok.com/embed.js" is:inline></script>
 </section>
 
 <script>
   const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const videoCards = document.querySelectorAll<HTMLButtonElement>('.video-card');
-  const modal = document.getElementById('video-modal') as HTMLDialogElement;
-  const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-  const modalClose = document.getElementById('modal-close');
+  const videoCards = document.querySelectorAll<HTMLDivElement>('.video-card');
 
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -99,18 +93,5 @@ import { categories, videos } from '../data/videos';
         card.style.display = matches ? '' : 'none';
       });
     });
-  });
-
-  videoCards.forEach((card) => {
-    card.addEventListener('click', () => {
-      modalImage.src = card.dataset.thumb ?? '';
-      modalImage.alt = card.dataset.title ?? '';
-      modal.showModal();
-    });
-  });
-
-  modalClose?.addEventListener('click', () => modal.close());
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.close();
   });
 </script>
