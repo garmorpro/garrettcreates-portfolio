@@ -1,0 +1,56 @@
+---
+const year = new Date().getFullYear();
+const email = 'garrettmugc@gmail.com';
+
+// TODO: update hrefs when TikTok and Instagram accounts are live
+const socials = [
+  {
+    name: 'TikTok',
+    href: '#',
+    icon: 'M16.6 5.82s.51.5 1.6.5v2.5c0 .85-.32 1.66-.9 2.27a3.5 3.5 0 0 1-2.4 1.02v6.4c0 2.76-2.24 5-5 5a5 5 0 0 1-1.6-9.74v2.6a2.5 2.5 0 1 0 3.6 2.24V2h2.5c0 1.66 1.04 3.06 2.2 3.82z',
+  },
+  {
+    name: 'Instagram',
+    href: '#',
+    icon: 'M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2z',
+  },
+];
+---
+
+<footer class="border-t border-charcoal/10 bg-offwhite px-6 py-12 lg:px-12">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+    <div>
+      <p class="font-[family-name:var(--font-display)] text-base font-medium text-ink">
+        Garrett Creates
+      </p>
+      <p class="mt-1 text-sm text-charcoal/50">
+        &copy; {year} Garrett Creates. All rights reserved.
+      </p>
+    </div>
+
+    <div class="flex items-center gap-5">
+      <a
+        href={`mailto:${email}`}
+        class="text-sm text-charcoal/60 transition hover:text-clay-dark"
+      >
+        {email}
+      </a>
+
+      <div class="flex gap-3">
+        {
+          socials.map((social) => (
+            <a
+              href={social.href}
+              aria-label={social.name}
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-charcoal/15 text-charcoal/60 transition hover:border-clay hover:text-clay-dark"
+            >
+              <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current">
+                <path d={social.icon} />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

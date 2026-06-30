@@ -1,0 +1,104 @@
+---
+const links = [
+  { label: 'Work', href: '#videos' },
+  { label: 'Services', href: '#services' },
+  { label: 'Process', href: '#process' },
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-12">
+    <!-- Logo / name -->
+    <a href="#" class="font-[family-name:var(--font-display)] text-lg font-medium text-ink">
+      Garrett Creates
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-8 md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-charcoal/70 transition hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="mailto:garrettmugc@gmail.com"
+        class="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition hover:scale-[1.02]"
+      >
+        Work With Me
+      </a>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      aria-label="Open menu"
+      class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+    >
+      <span class="menu-bar h-0.5 w-6 rounded-full bg-ink transition-all duration-300" />
+      <span class="menu-bar h-0.5 w-6 rounded-full bg-ink transition-all duration-300" />
+      <span class="menu-bar h-0.5 w-6 rounded-full bg-ink transition-all duration-300" />
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-charcoal/10 bg-cream px-6 pb-6 md:hidden"
+  >
+    <nav class="flex flex-col gap-5 pt-5">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-nav-link text-base font-medium text-charcoal/80 transition hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="mailto:garrettmugc@gmail.com"
+        class="mt-2 rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-cream"
+      >
+        Work With Me
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('site-nav')!;
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+
+  // Scroll: add frosted background when not at top
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav.classList.add('bg-cream/90', 'backdrop-blur-md', 'shadow-sm');
+    } else {
+      nav.classList.remove('bg-cream/90', 'backdrop-blur-md', 'shadow-sm');
+    }
+  });
+
+  // Mobile menu toggle
+  btn.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => menu.classList.add('hidden'));
+  });
+</script>
