@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Color palette: neutral premium base + warm accent (bridges tech + lifestyle) */
+  --color-cream: #faf8f5;
+  --color-offwhite: #f3f1ec;
+  --color-stone: #e8e4dc;
+  --color-charcoal: #1f1d1a;
+  --color-ink: #15130f;
+  --color-clay: #c1693f;
+  --color-clay-light: #e2a988;
+  --color-clay-dark: #9c5430;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
