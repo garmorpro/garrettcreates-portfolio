@@ -1,0 +1,70 @@
+---
+const stats = [
+  { value: '40+', label: 'Brands collaborated with' },
+  { value: '2', label: 'Core niches: tech & home' },
+  { value: '24h', label: 'Average response time' },
+];
+---
+
+<section id="about" class="px-6 py-24 sm:py-32 lg:px-12">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+    <!-- Photo -->
+    <div class="order-1 lg:order-none">
+      <div class="aspect-[4/5] w-full overflow-hidden rounded-3xl bg-stone shadow-sm">
+        <img
+          src="https://placehold.co/640x800/e8e4dc/1f1d1a?text=Garrett"
+          alt="Garrett, UGC creator"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Copy -->
+    <div>
+      <p class="text-sm font-semibold tracking-wide text-clay uppercase">About Me</p>
+
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
+      >
+        Hi, I'm Garrett.
+      </h2>
+
+      <p class="mt-6 text-lg leading-relaxed text-charcoal/80">
+        I've spent the last few years learning what makes people stop
+        scrolling — and turning that into content for brands who need their
+        product to feel less like an ad and more like a recommendation from
+        a friend.
+      </p>
+
+      <p class="mt-4 text-lg leading-relaxed text-charcoal/80">
+        My focus is split between two worlds: <span class="font-medium text-ink"
+          >tech and apps</span
+        >, where I make complex products feel simple and exciting, and
+        <span class="font-medium text-ink">home and lifestyle</span>, where I
+        show products doing what they do best — making everyday life a
+        little easier.
+      </p>
+
+      <p class="mt-4 text-lg leading-relaxed text-charcoal/80">
+        Brands work with me because I don't just shoot content — I think
+        like a marketer. Every video is built to hold attention, build
+        trust, and move someone from "interesting" to "I want that."
+      </p>
+
+      <!-- Stats -->
+      <div class="mt-10 grid grid-cols-3 gap-6 border-t border-stone pt-8">
+        {
+          stats.map((stat) => (
+            <div>
+              <p class="font-[family-name:var(--font-display)] text-3xl font-medium text-ink">
+                {stat.value}
+              </p>
+              <p class="mt-1 text-sm text-charcoal/60">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
