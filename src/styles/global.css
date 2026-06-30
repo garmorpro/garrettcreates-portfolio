@@ -5,15 +5,15 @@
   --font-display: "Fraunces", serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
-  /* Color palette: clean chalk — white base, slate-blue accent */
-  --color-cream: #ffffff;
-  --color-offwhite: #f5f5f5;
-  --color-stone: #e8e8e8;
-  --color-charcoal: #1a1a1a;
-  --color-ink: #0f0f0f;
-  --color-clay: #4a6fa5;
-  --color-clay-light: #8aadd4;
-  --color-clay-dark: #2e4f7a;
+  /* Color palette: charcoal & mint — dark gray base, mint-green accent */
+  --color-cream: #181c1f;
+  --color-offwhite: #1f2428;
+  --color-stone: #2c3236;
+  --color-charcoal: #e8edea;
+  --color-ink: #f0f5f2;
+  --color-clay: #3eb489;
+  --color-clay-light: #7dd4b4;
+  --color-clay-dark: #2a8a65;
 }
 
 html {
