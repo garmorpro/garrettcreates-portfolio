@@ -1,0 +1,32 @@
+---
+import { faqs } from '../data/faq';
+---
+
+<section id="faq" class="bg-offwhite px-6 py-24 sm:py-32 lg:px-12">
+  <div class="mx-auto max-w-3xl">
+    <div class="text-center">
+      <p class="text-sm font-semibold tracking-wide text-clay uppercase">FAQ</p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
+      >
+        Common questions
+      </h2>
+    </div>
+
+    <div class="mt-14 space-y-4">
+      {
+        faqs.map((faq) => (
+          <details class="group rounded-2xl bg-cream p-6 shadow-sm">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-ink">
+              {faq.question}
+              <span class="flex-shrink-0 text-2xl text-clay transition group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-charcoal/75">{faq.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

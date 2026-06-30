@@ -1,0 +1,81 @@
+---
+---
+
+<section id="contact" class="px-6 py-24 sm:py-32 lg:px-12">
+  <div class="mx-auto max-w-3xl">
+    <div class="text-center">
+      <p class="text-sm font-semibold tracking-wide text-clay uppercase">Contact</p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
+      >
+        Let's create something that converts
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-charcoal/75">
+        Tell me about your brand and what you need — I reply within 24 hours.
+      </p>
+    </div>
+
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="mt-12 space-y-5 rounded-3xl bg-offwhite p-8 shadow-sm sm:p-10"
+    >
+      <!-- TODO: replace with a real Web3Forms access key from https://web3forms.com before launch -->
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="subject" value="New inquiry from garrettcreates.com" />
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div>
+          <label for="name" class="text-sm font-medium text-charcoal">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
+          />
+        </div>
+        <div>
+          <label for="brand" class="text-sm font-medium text-charcoal">Brand / Company</label>
+          <input
+            type="text"
+            id="brand"
+            name="brand"
+            class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="email" class="text-sm font-medium text-charcoal">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
+        />
+      </div>
+
+      <div>
+        <label for="message" class="text-sm font-medium text-charcoal">
+          What are you looking for?
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded-full bg-ink px-8 py-4 text-base font-semibold text-cream shadow-sm transition hover:scale-[1.01] hover:shadow-md"
+      >
+        Send Inquiry
+      </button>
+    </form>
+  </div>
+</section>
