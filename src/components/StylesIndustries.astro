@@ -1,0 +1,57 @@
+---
+import { contentStyles, industries } from '../data/styles-industries';
+---
+
+<section class="px-6 py-24 sm:py-32 lg:px-12">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
+      <!-- Content Styles -->
+      <div>
+        <p class="text-sm font-semibold tracking-wide text-clay uppercase">Content Styles</p>
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-3xl leading-tight font-medium text-ink sm:text-4xl"
+        >
+          Versatile across formats
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-charcoal/75">
+          Whatever the brief calls for, I can shoot it in a way that feels native to the
+          platform.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {
+            contentStyles.map((style) => (
+              <span class="rounded-full border border-charcoal/15 bg-offwhite px-4 py-2 text-sm font-medium text-charcoal">
+                {style}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Industries -->
+      <div>
+        <p class="text-sm font-semibold tracking-wide text-clay uppercase">Industries</p>
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-3xl leading-tight font-medium text-ink sm:text-4xl"
+        >
+          Where I create most often
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-charcoal/75">
+          My focus sits at the intersection of tech and home — but I'm comfortable across
+          related categories too.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {
+            industries.map((industry) => (
+              <span class="rounded-full bg-ink px-4 py-2 text-sm font-medium text-cream">
+                {industry}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
