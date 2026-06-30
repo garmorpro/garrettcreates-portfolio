@@ -1,49 +1,84 @@
 ---
 ---
 
-<section class="relative px-6 pt-32 pb-24 sm:pt-40 sm:pb-32 lg:px-12">
-  <div class="mx-auto flex max-w-6xl flex-col items-center text-center">
-    <!-- Availability badge -->
-    <div
-      class="mb-8 inline-flex items-center gap-2 rounded-full border border-stone bg-offwhite px-4 py-2 text-sm font-medium text-charcoal"
-    >
-      <span class="h-2 w-2 rounded-full bg-clay"></span>
-      Currently booking July 2026
+<section class="relative overflow-hidden px-6 pt-28 pb-20 sm:pt-36 sm:pb-28 lg:px-12">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+    <!-- Left: copy -->
+    <div class="order-2 lg:order-1">
+      <!-- Availability badge -->
+      <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-stone bg-offwhite px-4 py-2 text-sm font-medium text-charcoal">
+        <span class="h-2 w-2 rounded-full bg-clay"></span>
+        Currently booking July 2026
+      </div>
+
+      <h1 class="font-[family-name:var(--font-display)] text-5xl leading-[1.1] font-medium text-ink sm:text-6xl">
+        Tech that feels human.
+        <span class="text-clay"> Homes that feel real.</span>
+      </h1>
+
+      <p class="mt-6 text-lg leading-relaxed text-charcoal/75">
+        I'm Garrett — a UGC creator who helps tech, app, and home brands turn
+        everyday products into content people actually want to watch.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href="#contact"
+          class="rounded-full bg-clay px-8 py-4 text-base font-semibold text-cream shadow-sm transition hover:scale-[1.02] hover:bg-clay-dark"
+        >
+          Work With Me
+        </a>
+        <a
+          href="#videos"
+          class="rounded-full border border-stone px-8 py-4 text-base font-semibold text-charcoal transition hover:border-charcoal/40 hover:bg-offwhite"
+        >
+          See My Work
+        </a>
+      </div>
     </div>
 
-    <!-- Headline -->
-    <h1
-      class="max-w-4xl font-[family-name:var(--font-display)] text-5xl leading-[1.1] font-medium text-ink sm:text-6xl lg:text-7xl"
-    >
-      Tech that feels human.
-      <span class="text-clay">Homes that feel real.</span>
-    </h1>
+    <!-- Right: photo + floating badges -->
+    <div class="order-1 flex justify-center lg:order-2 lg:justify-end">
+      <div class="relative w-[320px] sm:w-[380px]">
 
-    <!-- Supporting paragraph -->
-    <p class="mt-8 max-w-2xl text-lg leading-relaxed text-charcoal/80 sm:text-xl">
-      I'm Garrett — a UGC creator who helps tech, app, and home brands turn
-      everyday products into content people actually want to watch.
-    </p>
+        <!-- Photo -->
+        <div class="aspect-[3/4] w-full overflow-hidden rounded-3xl bg-stone">
+          <!-- TODO: replace src with your real headshot, e.g. /images/garrett.jpg -->
+          <img
+            src="https://placehold.co/380x507/2c3236/7dd4b4?text=Your+Photo+Here"
+            alt="Garrett, UGC creator"
+            class="h-full w-full object-cover"
+          />
+        </div>
 
-    <!-- CTAs -->
-    <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-      <a
-        href="#contact"
-        class="rounded-full bg-ink px-8 py-4 text-base font-semibold text-cream shadow-sm transition hover:scale-[1.02] hover:shadow-md"
-      >
-        Work With Me
-      </a>
-      <a
-        href="#videos"
-        class="rounded-full border border-charcoal/15 bg-transparent px-8 py-4 text-base font-semibold text-charcoal transition hover:border-charcoal/30 hover:bg-offwhite"
-      >
-        Watch My Reel
-      </a>
+        <!-- Floating badge: brands -->
+        <div class="absolute -bottom-4 -left-6 flex items-center gap-3 rounded-2xl bg-offwhite px-4 py-3 shadow-lg border border-stone">
+          <div class="flex -space-x-2">
+            <div class="h-8 w-8 rounded-full bg-clay/30 border-2 border-offwhite"></div>
+            <div class="h-8 w-8 rounded-full bg-clay/50 border-2 border-offwhite"></div>
+            <div class="h-8 w-8 rounded-full bg-clay border-2 border-offwhite"></div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-ink">40+ Brands</p>
+            <p class="text-xs text-charcoal/60">worked with</p>
+          </div>
+        </div>
+
+        <!-- Floating badge: response time -->
+        <div class="absolute -top-4 -right-6 flex items-center gap-2 rounded-2xl bg-offwhite px-4 py-3 shadow-lg border border-stone">
+          <span class="text-xl">⚡</span>
+          <div>
+            <p class="text-sm font-semibold text-ink">24h Reply</p>
+            <p class="text-xs text-charcoal/60">guaranteed</p>
+          </div>
+        </div>
+
+        <!-- Decorative accent ring -->
+        <div class="absolute -z-10 -bottom-6 -right-6 h-48 w-48 rounded-full border border-clay/20"></div>
+        <div class="absolute -z-10 -top-6 -left-6 h-32 w-32 rounded-full border border-clay/10"></div>
+      </div>
     </div>
 
-    <!-- Social proof placeholder -->
-    <p class="mt-12 text-sm tracking-wide text-charcoal/50 uppercase">
-      Trusted by tech & home brands
-    </p>
   </div>
 </section>
