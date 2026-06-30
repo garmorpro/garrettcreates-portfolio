@@ -1,0 +1,116 @@
+---
+import { categories, videos } from '../data/videos';
+---
+
+<section id="videos" class="px-6 py-24 sm:py-32 lg:px-12">
+  <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold tracking-wide text-clay uppercase">Featured UGC</p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
+      >
+        Recent work
+      </h2>
+    </div>
+
+    <!-- Filters -->
+    <div class="mt-12 flex flex-wrap justify-center gap-3" id="video-filters">
+      {
+        categories.map((category, i) => (
+          <button
+            type="button"
+            class="filter-btn rounded-full border border-charcoal/15 px-5 py-2 text-sm font-medium text-charcoal transition data-[active=true]:border-ink data-[active=true]:bg-ink data-[active=true]:text-cream"
+            data-category={category}
+            data-active={i === 0 ? 'true' : 'false'}
+          >
+            {category}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Grid -->
+    <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="video-grid">
+      {
+        videos.map((video) => (
+          <button
+            type="button"
+            class="video-card group relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm"
+            data-category={video.category}
+            data-title={video.title}
+            data-thumb={video.thumbnail}
+          >
+            <img
+              src={video.thumbnail}
+              alt={video.title}
+              loading="lazy"
+              class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 flex items-end bg-gradient-to-t from-ink/70 via-ink/0 to-transparent p-5 opacity-0 transition group-hover:opacity-100"
+            >
+              <p class="text-left text-sm font-medium text-cream">{video.title}</p>
+            </div>
+            <div
+              class="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cream/90 opacity-0 transition group-hover:opacity-100"
+            >
+              <svg viewBox="0 0 24 24" class="h-5 w-5 fill-ink"><path d="M8 5v14l11-7z" /></svg>
+            </div>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Lightbox modal -->
+  <dialog
+    id="video-modal"
+    class="m-auto w-full max-w-3xl rounded-2xl bg-ink p-0 backdrop:bg-ink/80"
+  >
+    <div class="relative aspect-video w-full">
+      <button
+        type="button"
+        id="modal-close"
+        class="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-cream/90 text-ink"
+        aria-label="Close video"
+      >
+        ✕
+      </button>
+      <img id="modal-image" src="" alt="" class="h-full w-full rounded-2xl object-cover" />
+    </div>
+  </dialog>
+</section>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const videoCards = document.querySelectorAll<HTMLButtonElement>('.video-card');
+  const modal = document.getElementById('video-modal') as HTMLDialogElement;
+  const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+  const modalClose = document.getElementById('modal-close');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => b.setAttribute('data-active', 'false'));
+      btn.setAttribute('data-active', 'true');
+      const category = btn.dataset.category;
+
+      videoCards.forEach((card) => {
+        const matches = category === 'All' || card.dataset.category === category;
+        card.style.display = matches ? '' : 'none';
+      });
+    });
+  });
+
+  videoCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      modalImage.src = card.dataset.thumb ?? '';
+      modalImage.alt = card.dataset.title ?? '';
+      modal.showModal();
+    });
+  });
+
+  modalClose?.addEventListener('click', () => modal.close());
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
+  });
+</script>

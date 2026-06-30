@@ -1,0 +1,55 @@
+---
+const reasons = [
+  {
+    title: 'I think like a marketer',
+    description:
+      "Every video is built around a hook, a problem, and a reason to act — not just nice footage.",
+  },
+  {
+    title: 'Two niches, one creator',
+    description:
+      'Tech and home content require different instincts. I bring both, so you get one reliable creator instead of juggling several.',
+  },
+  {
+    title: 'Fast, clear communication',
+    description:
+      'Briefs get answered within 24 hours. No chasing, no guessing where a project stands.',
+  },
+  {
+    title: 'Content built to perform',
+    description:
+      "Raw, usable footage and edited deliverables both shot with paid media and organic posting in mind.",
+  },
+];
+---
+
+<section id="why-brands" class="bg-offwhite px-6 py-24 sm:py-32 lg:px-12">
+  <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold tracking-wide text-clay uppercase">
+        Why Brands Work With Me
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
+      >
+        Content that converts, not just content.
+      </h2>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        reasons.map((reason) => (
+          <div class="rounded-2xl bg-cream p-8 shadow-sm">
+            <div class="mb-5 h-10 w-10 rounded-full bg-clay/15" />
+            <h3 class="font-[family-name:var(--font-display)] text-xl font-medium text-ink">
+              {reason.title}
+            </h3>
+            <p class="mt-3 text-base leading-relaxed text-charcoal/75">
+              {reason.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
