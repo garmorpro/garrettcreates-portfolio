@@ -1,81 +1,54 @@
 ---
+const email = 'garrettmugc@gmail.com';
+
+// TODO: replace with real profile URLs once the TikTok and Instagram accounts are live
+const socials = [
+  {
+    name: 'TikTok',
+    href: '#',
+    icon: 'M16.6 5.82s.51.5 1.6.5v2.5c0 .85-.32 1.66-.9 2.27a3.5 3.5 0 0 1-2.4 1.02v6.4c0 2.76-2.24 5-5 5a5 5 0 0 1-1.6-9.74v2.6a2.5 2.5 0 1 0 3.6 2.24V2h2.5c0 1.66 1.04 3.06 2.2 3.82z',
+  },
+  {
+    name: 'Instagram',
+    href: '#',
+    icon: 'M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2z',
+  },
+];
 ---
 
 <section id="contact" class="px-6 py-24 sm:py-32 lg:px-12">
-  <div class="mx-auto max-w-3xl">
-    <div class="text-center">
-      <p class="text-sm font-semibold tracking-wide text-clay uppercase">Contact</p>
-      <h2
-        class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
-      >
-        Let's create something that converts
-      </h2>
-      <p class="mt-5 text-lg leading-relaxed text-charcoal/75">
-        Tell me about your brand and what you need — I reply within 24 hours.
-      </p>
-    </div>
-
-    <form
-      action="https://api.web3forms.com/submit"
-      method="POST"
-      class="mt-12 space-y-5 rounded-3xl bg-offwhite p-8 shadow-sm sm:p-10"
+  <div class="mx-auto max-w-2xl text-center">
+    <p class="text-sm font-semibold tracking-wide text-clay uppercase">Contact</p>
+    <h2
+      class="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight font-medium text-ink sm:text-5xl"
     >
-      <!-- TODO: replace with a real Web3Forms access key from https://web3forms.com before launch -->
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-      <input type="hidden" name="subject" value="New inquiry from garrettcreates.com" />
+      Let's create something that converts
+    </h2>
+    <p class="mt-5 text-lg leading-relaxed text-charcoal/75">
+      Reach out directly — I reply within 24 hours.
+    </p>
 
-      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div>
-          <label for="name" class="text-sm font-medium text-charcoal">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
-          />
-        </div>
-        <div>
-          <label for="brand" class="text-sm font-medium text-charcoal">Brand / Company</label>
-          <input
-            type="text"
-            id="brand"
-            name="brand"
-            class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
-          />
-        </div>
-      </div>
+    <a
+      href={`mailto:${email}`}
+      class="mt-10 inline-block rounded-full bg-ink px-8 py-4 text-base font-semibold text-cream shadow-sm transition hover:scale-[1.02] hover:shadow-md"
+    >
+      {email}
+    </a>
 
-      <div>
-        <label for="email" class="text-sm font-medium text-charcoal">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
-        />
-      </div>
-
-      <div>
-        <label for="message" class="text-sm font-medium text-charcoal">
-          What are you looking for?
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          class="mt-2 w-full rounded-xl border border-charcoal/15 bg-cream px-4 py-3 text-charcoal outline-none focus:border-clay"
-        ></textarea>
-      </div>
-
-      <button
-        type="submit"
-        class="w-full rounded-full bg-ink px-8 py-4 text-base font-semibold text-cream shadow-sm transition hover:scale-[1.01] hover:shadow-md"
-      >
-        Send Inquiry
-      </button>
-    </form>
+    <div class="mt-10 flex justify-center gap-4">
+      {
+        socials.map((social) => (
+          <a
+            href={social.href}
+            aria-label={social.name}
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/15 text-charcoal transition hover:border-clay hover:text-clay-dark"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current">
+              <path d={social.icon} />
+            </svg>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </section>
