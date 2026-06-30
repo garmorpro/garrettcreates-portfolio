@@ -30,15 +30,15 @@ import { categories, videos } from '../data/videos';
     </div>
 
     <!-- Phone grid -->
-    <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-16">
       {
         videos.map((video) => (
-          <div class="video-card flex flex-col items-center" data-category={video.category}>
+          <div class="video-card flex w-[230px] flex-col items-center" data-category={video.category}>
             <!-- Phone frame -->
-            <div class="relative w-[230px] rounded-[2.25rem] bg-ink p-2.5 shadow-lg">
-              <!-- Notch -->
-              <div class="absolute top-2.5 left-1/2 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-ink" />
-              <div class="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.75rem] bg-black">
+            <div class="relative w-full rounded-[3rem] bg-ink p-3 shadow-lg">
+              <!-- Dynamic island -->
+              <div class="absolute top-6 left-1/2 z-10 h-[22px] w-[88px] -translate-x-1/2 rounded-full bg-ink" />
+              <div class="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2.25rem] bg-black">
                 {video.tiktokUrl ? (
                   <blockquote
                     class="tiktok-embed h-full w-full"
